@@ -1,0 +1,16 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var returnUrl = ViewBag.ReturnUrl as string;
+}
+
+<h1>Login</h1>
+<form action="/login?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="post">
+
+    <input type="text" name="name" placeholder="User Name" />
+    <input type="password" name="pass" placeholder="Password" />
+
+    <input type="submit" value="login" />
+
+</form>

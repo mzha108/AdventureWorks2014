@@ -1,0 +1,100 @@
+﻿@model IEnumerable<AdventureWorks2014.Models.Employee>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="pl-2 pt-5 text-uppercase">@ViewBag.PageName</h1>
+
+<div class="paged-list-style container-fluid pt-5">
+    <div class="row">
+        <div class="col-10 col-lg-10 page-padding-left">
+            @Html.PagedListPager(
+           (IPagedList)Model,
+           page => Url.Action("Index", new { page = page }),
+           new X.PagedList.Mvc.Core.Common.PagedListRenderOptions
+           {
+               ContainerDivClasses = new[] { "container" },
+               LiElementClasses = new[] { "page-item" },
+               PageClasses = new[] { "pagination page-link" }
+           })
+        </div>
+
+        <div class="col-2 col-lg-2"><a class="btn btn-success btn-sm float-right btn-padding-8px12px" asp-action="Create">Create New</a></div>
+    </div> <!-- end row -->
+</div>
+<!-- end paged-list-style name -->
+
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                <th>
+                    Title
+                </th>
+                <th>
+                    Department
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="onMouseHoverRow" onclick="location.href='@Url.Action("Details", new { id = item.BusinessEntityId })'">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Person.FirstName) @Html.DisplayFor(modelItem => item.Person.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobTitle)
+                    </td>
+                    <td>
+                        @foreach (var x in item.EmployeeDepartmentHistory)
+                        {
+                            if (!x.EndDate.HasValue)
+                            {
+                                @x.Department.Name
+                            }
+                        }
+                    </td>
+                    @*<td>
+                            <span class="float-right">
+                                <a class="btn btn-sm btn-warning" asp-action="Details" asp-route-id="@item.BusinessEntityId">Details</a> |
+                                <a class="btn btn-sm btn-outline-danger disabled" asp-action="Delete" asp-route-id="@item.BusinessEntityId">Delete</a>
+                            </span>
+                        </td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="paged-list-style container-fluid pt-5">
+    <div class="row">
+        <div class="col-10 col-lg-10 page-padding-left">
+            @Html.PagedListPager(
+           (IPagedList)Model,
+           page => Url.Action("Index", new { page = page }),
+           new X.PagedList.Mvc.Core.Common.PagedListRenderOptions
+           {
+               ContainerDivClasses = new[] { "container" },
+               LiElementClasses = new[] { "page-item" },
+               PageClasses = new[] { "pagination page-link" }
+           })
+        </div>
+
+        <div class="col-2 col-lg-2"><a class="btn btn-success btn-sm float-right btn-padding-8px12px" asp-action="Create">Create New</a></div>
+    </div> <!-- end row -->
+</div>
+<!-- end paged-list-style name -->
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('ul.pagination > li.disabled > a').addClass('page-link');
+        });
+    </script>
+}
