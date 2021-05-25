@@ -10,7 +10,7 @@ using X.PagedList;
 
 namespace AdventureWorks2014.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class EmployeeController : Controller
     {
         //private readonly IEmployee _employee;

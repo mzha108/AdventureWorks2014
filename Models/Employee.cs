@@ -8,11 +8,6 @@ namespace AdventureWorks2014.Models
     [Table("Employee", Schema = "HumanResources")]
     public class Employee : BaseEntity
     {
-        public Employee() : base()
-        {
-
-        }
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int BusinessEntityId { get; set; }
