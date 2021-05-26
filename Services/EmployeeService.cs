@@ -20,7 +20,8 @@ namespace AdventureWorks2014.Services
             return base.Get().Include(x => x.Person)
                              .Include(x => x.EmailAddress)
                              .Include(x => x.EmployeeDepartmentHistory)
-                                .ThenInclude(y => y.Department);
+                                .ThenInclude(y => y.Department)
+                             .OrderBy(x => x.LoginId);
         }
 
         public override Employee Get(int Id)
@@ -29,40 +30,44 @@ namespace AdventureWorks2014.Services
         }
 
 
-        public override void Add(Employee employee)
+        public override void Add(Employee employee, params object[] a)
         {
-            employee.BusinessEntityId = _db.BusinessEntities.Max(x => x.BusinessEntityID);
+            employee.BusinessEntityId = _db.BusinessEntities.Max(x => x.BusinessEntityId) + 1;
+
+            
+
+            //employee.LoginId = 
 
             _db.Employees.Add(employee);
             _db.SaveChanges();
         }
 
-        public List<Employee> GetAllPerson()
-        {
-            return _db.Employees.Include(x => x.Person)
-                                .Include(x => x.EmailAddress)
-                                .Include(x => x.EmployeeDepartmentHistory)
-                                    .ThenInclude(y => y.Department)
-                                .ToList();
-        }
+        //public List<Employee> GetAllPerson()
+        //{
+        //    return _db.Employees.Include(x => x.Person)
+        //                        .Include(x => x.EmailAddress)
+        //                        .Include(x => x.EmployeeDepartmentHistory)
+        //                            .ThenInclude(y => y.Department)
+        //                        .ToList();
+        //}
 
-        public Employee GetPerson(int Id)
-        {
-            var entity = _db.Employees.Find(Id);
-            return entity;
-        }
+        //public Employee GetPerson(int Id)
+        //{
+        //    var entity = _db.Employees.Find(Id);
+        //    return entity;
+        //}
 
-        public void Remove(int Id)
-        {
-            var entity = _db.Employees.Find(Id);
-            _db.Remove(entity);
-            _db.SaveChanges();
-        }
+        //public void Remove(int Id)
+        //{
+        //    var entity = _db.Employees.Find(Id);
+        //    _db.Remove(entity);
+        //    _db.SaveChanges();
+        //}
 
-        public void Update(Employee employee)
-        {
-            _db.Employees.Update(employee);
-            _db.SaveChanges(); 
-        }
+        //public void Update(Employee employee)
+        //{
+        //    _db.Employees.Update(employee);
+        //    _db.SaveChanges(); 
+        //}
     }
 }

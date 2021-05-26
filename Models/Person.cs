@@ -15,6 +15,7 @@ namespace AdventureWorks2014.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [ForeignKey("BusinessEntityId")]
         public int BusinessEntityId { get; set; }
+
         public string PersonType { get; set; }
         public bool NameStyle { get; set; } = false;
 
@@ -31,14 +32,14 @@ namespace AdventureWorks2014.Models
         public string Suffix { get; set; }
 
         [DisplayName("Email")]
-        public int EmailPromotion { get; set; }
+        public int EmailPromotion { get; set; } = 0;
         public string AdditionalContactInfo { get; set; }
         public string Demographics { get; set; }
         public Guid Rowguid { get; set; } = Guid.NewGuid();
 
         [DisplayName("Modified Date")]
         [DataType(DataType.Date)]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime ModifiedDate { get; set; } = DateTime.Today;
 
 
 

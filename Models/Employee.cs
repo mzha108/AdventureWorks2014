@@ -13,6 +13,8 @@ namespace AdventureWorks2014.Models
         public int BusinessEntityId { get; set; }
         public string NationalIdnumber { get; set; }
         public string LoginId { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public short? OrganizationLevel { get; set; }
         public string JobTitle { get; set; }
 
@@ -23,16 +25,16 @@ namespace AdventureWorks2014.Models
 
         [DataType(DataType.Date)]
         public DateTime HireDate { get; set; }
-        public bool? SalariedFlag { get; set; }
-        public short VacationHours { get; set; }
-        public short SickLeaveHours { get; set; }
-        public bool? CurrentFlag { get; set; }
-        public Guid Rowguid { get; set; }
+        public bool? SalariedFlag { get; set; } = false;
+        public short VacationHours { get; set; } = 0;
+        public short SickLeaveHours { get; set; } = 0;
+        public bool? CurrentFlag { get; set; } = false;
+        public Guid Rowguid { get; set; } = Guid.NewGuid();
 
         [DataType(DataType.Date)]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime ModifiedDate { get; set; } = DateTime.Today;
 
-        public BusinessEntity BusinessEntity { get; set; }
+        //public BusinessEntity BusinessEntity { get; set; }
         public Person Person { get; set; }
         public List<EmailAddress> EmailAddress { get; set; }
         public List<EmployeeDepartmentHistory> EmployeeDepartmentHistory { get; set; }

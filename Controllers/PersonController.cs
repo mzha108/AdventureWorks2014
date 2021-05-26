@@ -10,7 +10,7 @@ using X.PagedList;
 
 namespace AdventureWorks2014.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class PersonController : Controller
     {
         //private readonly IPerson _person;
@@ -43,7 +43,7 @@ namespace AdventureWorks2014.Controllers
          {
              if (ModelState.IsValid)
              {
-                _businessEntity.Add(be);
+                //_businessEntity.Add(be);
 
                 _person.Add(person);
                 return RedirectToAction(nameof(Index));

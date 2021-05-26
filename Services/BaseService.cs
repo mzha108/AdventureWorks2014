@@ -30,7 +30,7 @@ namespace AdventureWorks2014.Services
         }
         
         // INSERT INTO table
-        public virtual void Add(T entity)
+        public virtual void Add(T entity, params object[] a)
         {
             _dbSet.Add(entity);
             _db.SaveChanges();

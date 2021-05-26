@@ -12,8 +12,8 @@ namespace AdventureWorks2014.Models
     public class BusinessEntity:BaseEntity
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int BusinessEntityID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int BusinessEntityId { get; set; }
         public Guid rowguid { get; set; }
 
         [DisplayName("Modified Date")]

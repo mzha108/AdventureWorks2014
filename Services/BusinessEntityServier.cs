@@ -46,9 +46,9 @@ namespace AdventureWorks2014.Services
             
         //}
 
-        public override void Add(BusinessEntity entity)
+        public override void Add(BusinessEntity entity, params object[] a)
         {
-            if (_db.BusinessEntities.Find(entity.BusinessEntityID) == null)
+            if (_db.BusinessEntities.Find(entity.BusinessEntityId) == null)
             {
                 entity.rowguid = Guid.NewGuid();
                 _db.BusinessEntities.Add(entity);

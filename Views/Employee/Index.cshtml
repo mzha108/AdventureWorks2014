@@ -40,6 +40,9 @@
                 <th>
                     Department
                 </th>
+                <th>
+                    LoginId
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -61,12 +64,9 @@
                             }
                         }
                     </td>
-                    @*<td>
-                            <span class="float-right">
-                                <a class="btn btn-sm btn-warning" asp-action="Details" asp-route-id="@item.BusinessEntityId">Details</a> |
-                                <a class="btn btn-sm btn-outline-danger disabled" asp-action="Delete" asp-route-id="@item.BusinessEntityId">Delete</a>
-                            </span>
-                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoginId)
+                    </td>
                 </tr>
             }
         </tbody>
