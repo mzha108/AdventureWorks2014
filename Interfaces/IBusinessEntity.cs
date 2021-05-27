@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace AdventureWorks2014.Services
 {
-    public interface IBusinessEntity
+    public interface IBusinessEntity<T>
     {
-        List<BusinessEntity> GetAll();
-        void Add(BusinessEntity be);
-        void Update(BusinessEntity be);
-        void Delete(int Id);
+        IQueryable<T> Get();
+        T Get(int Id);
+        void Add(T entity, params object[] a);
+        void Update(int Id);
+        void Delete(T entity);
     }
 }

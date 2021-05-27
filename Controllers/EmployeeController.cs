@@ -58,7 +58,7 @@ namespace AdventureWorks2014.Controllers
         {
             if (ModelState.IsValid)
             {
-                //_person.Add(person);
+                _person.Add(person);
                 _employee.Add(employee);
                 return RedirectToAction(nameof(Index));
             }

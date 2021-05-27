@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 namespace AdventureWorks2014.Models
 {
     [Table("BusinessEntity", Schema = "Person")]
-    public class BusinessEntity:BaseEntity
+    public class BusinessEntity : BaseEntity
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BusinessEntityId { get; set; }
         public Guid rowguid { get; set; } = Guid.NewGuid();
 

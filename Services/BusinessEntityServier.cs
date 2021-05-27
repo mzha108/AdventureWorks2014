@@ -31,7 +31,7 @@ namespace AdventureWorks2014.Services
         //    {
         //        throw new Exception("Already here!");
         //    }
-            
+
         //}
 
         //public void Delete(int Id)
@@ -43,10 +43,10 @@ namespace AdventureWorks2014.Services
 
         //public void Update(BusinessEntity be)
         //{
-            
+
         //}
 
-        public override void Add(BusinessEntity entity, params object[] a)
+        public override void Add(BusinessEntity entity)
         {
             _db.BusinessEntities.Add(entity);
             _db.SaveChanges();

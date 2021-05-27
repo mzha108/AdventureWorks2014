@@ -16,14 +16,14 @@ namespace AdventureWorks2014.Services
             _db = db;
         }
 
-        public override void Add(Person person, params object[] a)
+        public override void Add(Person person)
         {
-            person.BusinessEntityId = _db.BusinessEntities.Max(x => x.BusinessEntityId) + 1;
+            //person.BusinessEntityId = _db.BusinessEntities.Max(x => x.BusinessEntityId) + 1;
 
             //var res = _db.People.Count(x => x.FirstName == person.FirstName);
-
-            _db.People.Add(person);
-            _db.SaveChanges();
+            
+            base.Add(person);
+            
         }
 
         public void Remove(int Id)

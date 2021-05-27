@@ -11,15 +11,15 @@ namespace AdventureWorks2014.Controllers
     public class BusinessEntityController : Controller
     {
 
-        private readonly IBusinessEntity _businessEntity;
-        public BusinessEntityController(IBusinessEntity businessEntity)
+        private readonly IBase<BusinessEntity> _businessEntity;
+        public BusinessEntityController(IBase<BusinessEntity> businessEntity)
         {
             _businessEntity = businessEntity;
         }
 
         public IActionResult Index()
         {
-            var entities = _businessEntity.GetAll();
+            var entities = _businessEntity.Get();
             return View(entities);
         }
 
@@ -40,11 +40,11 @@ namespace AdventureWorks2014.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Delete(int Id)
-        {
-            _businessEntity.Delete(Id);
-            return RedirectToAction("Index");
-        }
+        //[HttpPost]
+        //public IActionResult Delete(int Id)
+        //{
+        //    _businessEntity.Delete(Id);
+        //    return RedirectToAction("Index");
+        //}
     }
 }
