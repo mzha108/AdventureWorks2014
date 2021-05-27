@@ -54,7 +54,7 @@ namespace AdventureWorks2014.Controllers
         }
         
         [HttpPost]
-        public IActionResult Create(Employee employee, Person person)
+        public IActionResult Create(Employee employee, Person person, BusinessEntity be)
         {
             if (ModelState.IsValid)
             {
