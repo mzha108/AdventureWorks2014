@@ -48,16 +48,8 @@ namespace AdventureWorks2014.Services
 
         public override void Add(BusinessEntity entity, params object[] a)
         {
-            if (_db.BusinessEntities.Find(entity.BusinessEntityId) == null)
-            {
-                entity.rowguid = Guid.NewGuid();
-                _db.BusinessEntities.Add(entity);
-                _db.SaveChanges();
-            }
-            else
-            {
-                throw new Exception("Already here!");
-            }
+            _db.BusinessEntities.Add(entity);
+            _db.SaveChanges();
         }
     }
 }

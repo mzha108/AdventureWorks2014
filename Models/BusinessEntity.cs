@@ -14,11 +14,11 @@ namespace AdventureWorks2014.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int BusinessEntityId { get; set; }
-        public Guid rowguid { get; set; }
+        public Guid rowguid { get; set; } = Guid.NewGuid();
 
         [DisplayName("Modified Date")]
         [DataType(DataType.Date)]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime ModifiedDate { get; set; } = DateTime.Today;
 
 
         public Person Person { get; set; }
