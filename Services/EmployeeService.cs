@@ -32,14 +32,8 @@ namespace AdventureWorks2014.Services
 
         public override void Add(Employee employee)
         {
-            employee.BusinessEntityId = _db.BusinessEntities.Max(x => x.BusinessEntityId) + 1;
+            employee.BusinessEntityId = _db.People.Max(x => x.BusinessEntityId);
 
-            
-
-            //employee.LoginId = 
-
-            _db.Employees.Add(employee);
-            _db.SaveChanges();
         }
 
         //public List<Employee> GetAllPerson()

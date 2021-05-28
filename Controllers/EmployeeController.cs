@@ -20,7 +20,7 @@ namespace AdventureWorks2014.Controllers
         private readonly IBase<Person> _person;
         //private readonly IVEmployee _vEmployee;
 
-        public EmployeeController(IBase<Employee> employee, IBase<Person> person)
+        public EmployeeController(IBase<Employee> employee, IBase<Person> person, IBase<BusinessEntity> businessEntity)
         {
             //_employee = employee;
             //_person = person;
@@ -28,7 +28,7 @@ namespace AdventureWorks2014.Controllers
 
             _employee = employee;
             _person = person;
-            //_businessEntity = businessEntity;
+            _businessEntity = businessEntity;
         }
 
         public IActionResult Index(int? page)
@@ -58,6 +58,7 @@ namespace AdventureWorks2014.Controllers
         {
             if (ModelState.IsValid)
             {
+                _businessEntity.Add(be);
                 _person.Add(person);
                 _employee.Add(employee);
                 return RedirectToAction(nameof(Index));

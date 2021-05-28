@@ -46,10 +46,10 @@ namespace AdventureWorks2014.Services
 
         //}
 
-        public override void Add(BusinessEntity entity)
-        {
-            _db.BusinessEntities.Add(entity);
-            _db.SaveChanges();
-        }
+        //public override void Add(BusinessEntity entity)
+        //{
+        //    _db.BusinessEntities.Add(entity);
+        //    _db.SaveChanges();
+        //}
     }
 }

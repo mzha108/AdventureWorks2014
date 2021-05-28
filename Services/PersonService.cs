@@ -18,11 +18,11 @@ namespace AdventureWorks2014.Services
 
         public override void Add(Person person)
         {
-            //person.BusinessEntityId = _db.BusinessEntities.Max(x => x.BusinessEntityId) + 1;
+            person.BusinessEntityId = _db.BusinessEntities.Max(x => x.BusinessEntityId);
 
             //var res = _db.People.Count(x => x.FirstName == person.FirstName);
-            
-            base.Add(person);
+
+            //base.Add(person);
             
         }
 
