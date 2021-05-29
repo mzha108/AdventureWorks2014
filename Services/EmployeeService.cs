@@ -30,11 +30,11 @@ namespace AdventureWorks2014.Services
         }
 
 
-        public override void Add(Employee employee)
-        {
-            employee.BusinessEntityId = _db.People.Max(x => x.BusinessEntityId);
-
-        }
+        //public override void Add(Employee employee)
+        //{
+        //    employee.BusinessEntityId = _db.People.Max(x => x.BusinessEntityId);
+        //    base.Add(employee);
+        //}
 
         //public List<Employee> GetAllPerson()
         //{

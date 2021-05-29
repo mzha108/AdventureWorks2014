@@ -43,7 +43,7 @@ namespace AdventureWorks2014.Models
 
 
 
-        public BusinessEntity BusinessEntity { get; set; }
+        public BusinessEntity BusinessEntity { get; set; } = new BusinessEntity();
         public Employee Employee { get; set; }
     }
 

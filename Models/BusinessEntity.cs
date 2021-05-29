@@ -13,7 +13,7 @@ namespace AdventureWorks2014.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public new int BusinessEntityId { get; set; }
+        public int BusinessEntityId { get; set; }
         public Guid rowguid { get; set; } = Guid.NewGuid();
 
         [DisplayName("Modified Date")]
@@ -22,6 +22,7 @@ namespace AdventureWorks2014.Models
 
 
         public Person Person { get; set; }
+        //public Employee Employee { get;set; }
 
     }
 }

@@ -12,7 +12,6 @@ namespace AdventureWorks2014.Services
         public AdventureContext(DbContextOptions<AdventureContext> options) : base(options)
         {
             
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,6 +22,8 @@ namespace AdventureWorks2014.Services
                       .WithOne(p => p.Employee)
                       .HasForeignKey<Employee>(d => d.BusinessEntityId);
             });
+
+            
 
             modelBuilder.Entity<Person>(entity =>
             {
