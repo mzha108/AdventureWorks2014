@@ -23,8 +23,6 @@ namespace AdventureWorks2014.Services
                       .HasForeignKey<Employee>(d => d.BusinessEntityId);
             });
 
-            
-
             modelBuilder.Entity<Person>(entity =>
             {
                 entity.HasOne(d => d.BusinessEntity)
@@ -35,6 +33,9 @@ namespace AdventureWorks2014.Services
             modelBuilder.Entity<EmailAddress>(entity =>
             {
                 entity.HasKey(e => new { e.BusinessEntityId, e.EmailAddressId });
+                entity.HasOne(d => d.Person)
+                      .WithOne(p => p.EmailAddress)
+                      .HasForeignKey<EmailAddress>(d => d.BusinessEntityId);
                 entity.ToTable("EmailAddress", "Person");
                 entity.Property(e => e.Email_Address)
                       .HasColumnName("EmailAddress");

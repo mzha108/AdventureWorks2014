@@ -9,10 +9,10 @@ namespace AdventureWorks2014.Services
 {
     public class EmployeeService : BaseService<Employee>
     {
-        private readonly AdventureContext _db;
+        
         public EmployeeService(AdventureContext db):base(db)
         {
-            _db = db;
+            
         }
 
         public override IQueryable<Employee> Get()
@@ -20,8 +20,7 @@ namespace AdventureWorks2014.Services
             return base.Get().Include(x => x.Person)
                              .Include(x => x.EmailAddress)
                              .Include(x => x.EmployeeDepartmentHistory)
-                                .ThenInclude(y => y.Department)
-                             .OrderBy(x => x.LoginId);
+                                .ThenInclude(y => y.Department);
         }
 
         public override Employee Get(int Id)
