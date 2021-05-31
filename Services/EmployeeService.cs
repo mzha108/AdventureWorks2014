@@ -18,7 +18,7 @@ namespace AdventureWorks2014.Services
         public override IQueryable<Employee> Get()
         {
             return base.Get().Include(x => x.Person)
-                             .Include(x => x.EmailAddress)
+                                .ThenInclude(x => x.EmailAddress)
                              .Include(x => x.EmployeeDepartmentHistory)
                                 .ThenInclude(y => y.Department);
         }
@@ -29,11 +29,17 @@ namespace AdventureWorks2014.Services
         }
 
 
-        //public override void Add(Employee employee)
-        //{
-        //    employee.BusinessEntityId = _db.People.Max(x => x.BusinessEntityId);
-        //    base.Add(employee);
-        //}
+        public override void Add(Employee employee)
+        {
+            int NumOfDupLoginId = base.Get().Count(x => x.Person.FirstName == employee.Person.FirstName);
+
+            string LoginIdStr = @"adventure-works\" + employee.Person.FirstName + 
+                (NumOfDupLoginId == 0 ? NumOfDupLoginId : NumOfDupLoginId+1);
+
+            employee.LoginId = LoginIdStr;
+
+            base.Add(employee);
+        }
 
         //public List<Employee> GetAllPerson()
         //{

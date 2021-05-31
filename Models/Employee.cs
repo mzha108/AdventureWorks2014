@@ -35,7 +35,6 @@ namespace AdventureWorks2014.Models
         public DateTime ModifiedDate { get; set; } = DateTime.Today;
 
         public Person Person { get; set; }
-        public List<EmailAddress> EmailAddress { get; set; }
         public List<EmployeeDepartmentHistory> EmployeeDepartmentHistory { get; set; }
     }
 }

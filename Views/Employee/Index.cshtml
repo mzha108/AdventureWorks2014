@@ -43,31 +43,37 @@
                 <th>
                     LoginId
                 </th>
+                <th>
+                    Modified Date
+                </th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
-                <tr class="onMouseHoverRow" onclick="location.href='@Url.Action("Details", new { id = item.BusinessEntityId })'">
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Person.FirstName) @Html.DisplayFor(modelItem => item.Person.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.JobTitle)
-                    </td>
-                    <td>
-                        @foreach (var x in item.EmployeeDepartmentHistory)
+            <tr class="onMouseHoverRow" onclick="location.href='@Url.Action("Details", new { id = item.BusinessEntityId })'">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Person.FirstName) @Html.DisplayFor(modelItem => item.Person.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobTitle)
+                </td>
+                <td>
+                    @foreach (var x in item.EmployeeDepartmentHistory)
+                    {
+                        if (!x.EndDate.HasValue)
                         {
-                            if (!x.EndDate.HasValue)
-                            {
-                                @x.Department.Name
-                            }
+                            @x.Department.Name
                         }
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LoginId)
-                    </td>
-                </tr>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoginId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedDate)
+                </td>
+            </tr>
             }
         </tbody>
     </table>
