@@ -41,6 +41,7 @@ namespace AdventureWorks2014
             services.AddTransient<IBase<Person>, PersonService>();
             services.AddTransient<IBase<Employee>, EmployeeService>();
             services.AddTransient<IBase<EmailAddress>, EmailAddressService>();
+            services.AddTransient<IBase<EmployeeDepartmentHistory>, EmployeeDepartmentHistoryService>();
 
         }
 

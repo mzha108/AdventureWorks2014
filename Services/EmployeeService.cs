@@ -20,7 +20,7 @@ namespace AdventureWorks2014.Services
             return base.Get().Include(x => x.Person)
                                 .ThenInclude(x => x.EmailAddress)
                              .Include(x => x.EmployeeDepartmentHistory)
-                                .ThenInclude(y => y.Department);
+                                .ThenInclude(y => y.Department).AsNoTracking();
         }
 
         public override Employee Get(int Id)

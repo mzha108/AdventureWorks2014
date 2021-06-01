@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace AdventureWorks2014.Models
 {
-    public partial class Department
+    public partial class Department : BaseEntity
     {
         public short DepartmentId { get; set; }
 
