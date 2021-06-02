@@ -37,7 +37,7 @@ namespace AdventureWorks2014.Services
                 (NumOfDupLoginId == 0 ? NumOfDupLoginId : NumOfDupLoginId+1);
 
             employee.LoginId = LoginIdStr;
-
+            employee.Person.BusinessEntity = new BusinessEntity();
             base.Add(employee);
         }
 

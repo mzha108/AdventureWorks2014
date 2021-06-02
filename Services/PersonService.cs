@@ -16,6 +16,8 @@ namespace AdventureWorks2014.Services
             _db = db;
         }
 
+
+
         public void Remove(int Id)
         {
             var entity = _db.People.Find(Id);
@@ -36,11 +38,11 @@ namespace AdventureWorks2014.Services
 
         
 
-        public void Update(Person person)
-        {
-            _db.People.Update(person);
-            _db.SaveChanges();
-        }
+        //public void Update(Person person)
+        //{
+        //    _db.People.Update(person);
+        //    _db.SaveChanges();
+        //}
 
     }
 }

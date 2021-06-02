@@ -15,20 +15,23 @@ namespace AdventureWorks2014.Controllers
     {
         //private readonly IEmployee _employee;
         //private readonly IPerson _person;
-        private readonly IBase<BusinessEntity> _businessEntity;
+        //private readonly IBase<BusinessEntity> _businessEntity;
         private readonly IBase<Employee> _employee;
-        private readonly IBase<Person> _person;
+        //private readonly IBase<Person> _person;
         //private readonly IVEmployee _vEmployee;
 
-        public EmployeeController(IBase<Employee> employee, IBase<Person> person, IBase<BusinessEntity> businessEntity)
+        public EmployeeController(IBase<Employee> employee
+                                //, IBase<Person> person
+                                //, IBase<BusinessEntity> businessEntity
+                                 )
         {
             //_employee = employee;
             //_person = person;
             //_businessEntity = businessEntity;
 
             _employee = employee;
-            _person = person;
-            _businessEntity = businessEntity;
+            //_person = person;
+            //_businessEntity = businessEntity;
         }
 
         public IActionResult Index(int? page)
@@ -65,6 +68,19 @@ namespace AdventureWorks2014.Controllers
             }
 
             return View();
+        }
+
+        public IActionResult Edit(int Id)
+        {
+            var entity = _employee.Get(Id);
+            return View(entity);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Employee employee)
+        {
+            _employee.Update(employee);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

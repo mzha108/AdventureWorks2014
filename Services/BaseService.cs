@@ -44,9 +44,10 @@ namespace AdventureWorks2014.Services
 
 
         // UPDATE 
-        public virtual void Update(int Id)
+        public virtual void Update(T entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Update(entity);
+            _db.SaveChanges();
         }
 
     }

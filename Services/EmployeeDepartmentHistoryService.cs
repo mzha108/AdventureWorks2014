@@ -13,9 +13,6 @@ namespace AdventureWorks2014.Services
 
         }
 
-        public override void Update(int Id)
-        {
-            
-        }
+        
     }
 }

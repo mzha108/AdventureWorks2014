@@ -44,7 +44,7 @@ namespace AdventureWorks2014.Controllers
              if (ModelState.IsValid)
              {
                 //_businessEntity.Add(be);
-
+                person.BusinessEntity = new BusinessEntity();
                 _person.Add(person);
                 return RedirectToAction(nameof(Index));
              }
@@ -71,10 +71,11 @@ namespace AdventureWorks2014.Controllers
             Person p = _person.GetPerson(Id);
             return View(p);
         }
+        */
 
         public IActionResult Edit(int Id)
         {
-            var entity = _person.GetPerson(Id);
+            var entity = _person.Get(Id);
             return View(entity);
         }
 
@@ -83,6 +84,6 @@ namespace AdventureWorks2014.Controllers
         {
             _person.Update(person);
             return RedirectToAction("Index");
-        }*/
+        }
     }
 }

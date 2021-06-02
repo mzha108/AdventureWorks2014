@@ -10,7 +10,7 @@ namespace AdventureWorks2014.Services
         IQueryable<T> Get();
         T Get(int Id);
         void Add(T entity);
-        void Update(int Id);
+        void Update(T entity);
         void Delete(T entity);
     }
 }
