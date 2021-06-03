@@ -16,33 +16,12 @@ namespace AdventureWorks2014.Services
             _db = db;
         }
 
-
-
-        public void Remove(int Id)
+        public override void Update(Person entity)
         {
-            var entity = _db.People.Find(Id);
-            _db.People.Remove(entity);
-            _db.SaveChanges();
+            entity.BusinessEntity.BusinessEntityId = entity.BusinessEntityId;
+            base.Update(entity);
         }
 
-        public List<Person> GetAllPerson()
-        {
-            return _db.People.ToList();
-        }
-
-        public Person GetPerson(int Id)
-        {
-            var entity = _db.People.Find(Id);
-            return entity;
-        }
-
-        
-
-        //public void Update(Person person)
-        //{
-        //    _db.People.Update(person);
-        //    _db.SaveChanges();
-        //}
 
     }
 }

@@ -44,34 +44,13 @@ namespace AdventureWorks2014.Controllers
              if (ModelState.IsValid)
              {
                 //_businessEntity.Add(be);
-                person.BusinessEntity = new BusinessEntity();
+                //person.BusinessEntity = new BusinessEntity();
                 _person.Add(person);
                 return RedirectToAction(nameof(Index));
              }
 
              return View();
          }
-
-        /* public IActionResult Delete()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Delete(int Id)
-        {
-            _person.Remove(Id);
-
-            return RedirectToAction(nameof(Index));
-
-        }
-
-        public IActionResult Details(int Id)
-        {
-            Person p = _person.GetPerson(Id);
-            return View(p);
-        }
-        */
 
         public IActionResult Edit(int Id)
         {

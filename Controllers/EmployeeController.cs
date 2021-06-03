@@ -13,25 +13,11 @@ namespace AdventureWorks2014.Controllers
     //[Authorize]
     public class EmployeeController : Controller
     {
-        //private readonly IEmployee _employee;
-        //private readonly IPerson _person;
-        //private readonly IBase<BusinessEntity> _businessEntity;
         private readonly IBase<Employee> _employee;
-        //private readonly IBase<Person> _person;
-        //private readonly IVEmployee _vEmployee;
 
-        public EmployeeController(IBase<Employee> employee
-                                //, IBase<Person> person
-                                //, IBase<BusinessEntity> businessEntity
-                                 )
+        public EmployeeController(IBase<Employee> employee)
         {
-            //_employee = employee;
-            //_person = person;
-            //_businessEntity = businessEntity;
-
             _employee = employee;
-            //_person = person;
-            //_businessEntity = businessEntity;
         }
 
         public IActionResult Index(int? page)
