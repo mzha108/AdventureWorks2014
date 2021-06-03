@@ -31,6 +31,16 @@ namespace AdventureWorks2014.Controllers
             return View(onePageOfEmployee);
         }
 
+        public IActionResult DisplayGrid(int? page)
+        {
+            var pageSize = 24;
+            var pageNumber = page ?? 1;
+
+            var onePageOfEmpolyee = _employee.Get().ToPagedList(pageNumber, pageSize);
+
+            return View(onePageOfEmpolyee);
+        }
+
         [HttpGet]
         public IActionResult Details(int Id)
         {
