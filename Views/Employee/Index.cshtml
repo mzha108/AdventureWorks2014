@@ -55,9 +55,6 @@
                     Department
                 </th>
                 <th>
-                    LoginId
-                </th>
-                <th>
                     Modified Date
                 </th>
                 <th></th>
@@ -83,15 +80,10 @@
                     }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.LoginId)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.ModifiedDate)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.BusinessEntityId">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.BusinessEntityId">Details</a>
-                    <a asp-action="Delete" asp-route-id="@item.BusinessEntityId">Delete</a>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.BusinessEntityId">Details</a>
                 </td>
             </tr>
             }
