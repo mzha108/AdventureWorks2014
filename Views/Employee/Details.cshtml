@@ -13,24 +13,49 @@
         <form asp-action="Details">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="BusinessEntityId" />
+
+            <div class="form-group">
+                <label asp-for="Person.FirstName" class="control-label"></label>
+                <input asp-for="Person.FirstName" class="form-control" readonly="readonly" />
+                <span asp-validation-for="Person.FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Person.MiddleName" class="control-label"></label>
+                <input asp-for="Person.MiddleName" class="form-control" readonly="readonly" />
+                <span asp-validation-for="Person.MiddleName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Person.LastName" class="control-label"></label>
+                <input asp-for="Person.LastName" class="form-control" readonly="readonly" />
+                <span asp-validation-for="Person.LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <input asp-for="Gender" class="form-control" readonly="readonly" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <label asp-for="NationalIdnumber" class="control-label"></label>
-                <input asp-for="NationalIdnumber" class="form-control" readonly="readonly"/>
+                <input asp-for="NationalIdnumber" class="form-control" readonly="readonly" />
                 <span asp-validation-for="NationalIdnumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="LoginId" class="control-label"></label>
-                <input asp-for="LoginId" class="form-control" readonly="readonly"/>
+                <input asp-for="LoginId" class="form-control" readonly="readonly" />
                 <span asp-validation-for="LoginId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="OrganizationLevel" class="control-label"></label>
-                <input asp-for="OrganizationLevel" class="form-control" readonly="readonly"/>
+                <input asp-for="OrganizationLevel" class="form-control" readonly="readonly" />
                 <span asp-validation-for="OrganizationLevel" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="JobTitle" class="control-label"></label>
-                <input asp-for="JobTitle" class="form-control" readonly="readonly"/>
+                <input asp-for="JobTitle" class="form-control" readonly="readonly" />
                 <span asp-validation-for="JobTitle" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -43,11 +68,7 @@
                 <input asp-for="MaritalStatus" class="form-control" readonly="readonly" />
                 <span asp-validation-for="MaritalStatus" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Gender" class="control-label"></label>
-                <input asp-for="Gender" class="form-control" readonly="readonly" />
-                <span asp-validation-for="Gender" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="HireDate" class="control-label"></label>
                 <input asp-for="HireDate" class="form-control" readonly="readonly" />
@@ -60,27 +81,27 @@
             </div>
             <div class="form-group">
                 <label asp-for="VacationHours" class="control-label"></label>
-                <input asp-for="VacationHours" class="form-control" readonly="readonly"/>
+                <input asp-for="VacationHours" class="form-control" readonly="readonly" />
                 <span asp-validation-for="VacationHours" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SickLeaveHours" class="control-label"></label>
-                <input asp-for="SickLeaveHours" class="form-control" readonly="readonly"/>
+                <input asp-for="SickLeaveHours" class="form-control" readonly="readonly" />
                 <span asp-validation-for="SickLeaveHours" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CurrentFlag" class="control-label"></label>
-                <input asp-for="CurrentFlag" class="form-control" readonly="readonly"/>
+                <input asp-for="CurrentFlag" class="form-control" readonly="readonly" />
                 <span asp-validation-for="CurrentFlag" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Rowguid" class="control-label"></label>
-                <input asp-for="Rowguid" class="form-control" readonly="readonly"/>
+                <input asp-for="Rowguid" class="form-control" readonly="readonly" />
                 <span asp-validation-for="Rowguid" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ModifiedDate" class="control-label"></label>
-                <input asp-for="ModifiedDate" class="form-control" readonly="readonly"/>
+                <input asp-for="ModifiedDate" class="form-control" readonly="readonly" />
                 <span asp-validation-for="ModifiedDate" class="text-danger"></span>
             </div>
             <div class="form-group">
