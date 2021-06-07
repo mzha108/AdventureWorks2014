@@ -25,7 +25,12 @@ namespace AdventureWorks2014.Services
 
         public override Employee Get(int Id)
         {
-            return base.Get().Include(x => x.Person).Where(x => x.BusinessEntityId == Id).FirstOrDefault();
+            var tmp = base.Get().Include(x => x.Person)
+                                    .ThenInclude(x => x.EmailAddress)
+                                .Include(x => x.EmployeeDepartmentHistory)
+                                    .ThenInclude(x => x.Department)
+                                .Where(x => x.BusinessEntityId == Id).FirstOrDefault();
+            return tmp;
         }
 
     }

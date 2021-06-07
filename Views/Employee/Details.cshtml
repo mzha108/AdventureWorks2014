@@ -15,6 +15,12 @@
             <input type="hidden" asp-for="BusinessEntityId" />
 
             <div class="form-group">
+                <label asp-for="BusinessEntityId" class="control-label"></label>
+                <input asp-for="BusinessEntityId" class="form-control" readonly="readonly" />
+                <span asp-validation-for="BusinessEntityId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
                 <label asp-for="Person.FirstName" class="control-label"></label>
                 <input asp-for="Person.FirstName" class="form-control" readonly="readonly" />
                 <span asp-validation-for="Person.FirstName" class="text-danger"></span>
@@ -48,6 +54,29 @@
                 <input asp-for="LoginId" class="form-control" readonly="readonly" />
                 <span asp-validation-for="LoginId" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="Person.EmailAddress" class="control-label"></label>
+                <input asp-for="Person.EmailAddress" class="form-control" readonly="readonly" />
+                <span asp-validation-for="Person.EmailAddress" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+
+                @foreach (var x in Model.EmployeeDepartmentHistory)
+                {
+                    if (!x.EndDate.HasValue)
+                    {
+                        <label asp-for="EmployeeDepartmentHistory" class="control-label"></label>
+                        <input asp-for="@x.Department.Name" class="form-control" readonly="readonly" />
+                    }
+                }
+
+                @*<label asp-for="EmployeeDepartmentHistory" class="control-label"></label>
+                <input asp-for="EmployeeDepartmentHistory" class="form-control" readonly="readonly" />
+                <span asp-validation-for="EmployeeDepartmentHistory" class="text-danger"></span>*@
+            </div>
+
             <div class="form-group">
                 <label asp-for="OrganizationLevel" class="control-label"></label>
                 <input asp-for="OrganizationLevel" class="form-control" readonly="readonly" />

@@ -47,6 +47,9 @@
         <thead>
             <tr>
                 <th>
+                    Id
+                </th>
+                <th>
                     Name
                 <th>
                     Title
@@ -64,6 +67,9 @@
             @foreach (var item in Model)
             {
             <tr class="onMouseHoverRow" onclick="location.href='@Url.Action("Details", new { id = item.BusinessEntityId })'">
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusinessEntityId)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Person.FirstName) @Html.DisplayFor(modelItem => item.Person.LastName)
                 </td>
