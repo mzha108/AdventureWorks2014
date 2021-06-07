@@ -65,16 +65,20 @@
                 <label class="control-label">Department</label>
                 @foreach (var x in Model.EmployeeDepartmentHistory)
                 {
-                    <input asp-for="@x.Department.Name" class="form-control col-6" readonly="readonly" />
-                        
-                    <input asp-for="@x.StartDate.Date.ToShortDateString()" class="form-control col-12" readonly="readonly" />
+                    <input asp-for="@x.Department.Name" class="form-control col-12" readonly="readonly" />
+
+                    <p class="form-control col-12" readonly="readonly">@x.StartDate.Date.ToShortDateString()</p>
+                    if (x.EndDate != null)
+                    {
+                        <p class="form-control col-12" readonly="readonly">@x.EndDate.Value</p>
+                    }
+                    else
+                    {
+                        <p>null</p>
+                    }
+
                 }
 
-
-
-                @*<label asp-for="EmployeeDepartmentHistory" class="control-label"></label>
-        <input asp-for="EmployeeDepartmentHistory" class="form-control" readonly="readonly" />
-        <span asp-validation-for="EmployeeDepartmentHistory" class="text-danger"></span>*@
             </div>
 
             <div class="form-group">
