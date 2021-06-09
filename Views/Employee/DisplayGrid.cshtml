@@ -13,7 +13,7 @@
         <div class="col-10 col-lg-10 page-padding-left">
             @Html.PagedListPager(
            (IPagedList)Model,
-           page => Url.Action("Index", new { page = page }),
+           page => Url.Action("DisplayGrid", new { page = page }),
            new X.PagedList.Mvc.Core.Common.PagedListRenderOptions
            {
                ContainerDivClasses = new[] { "container" },
@@ -74,7 +74,7 @@
         <div class="col-10 col-lg-10 page-padding-left">
             @Html.PagedListPager(
            (IPagedList)Model,
-           page => Url.Action("Index", new { page = page }),
+           page => Url.Action("DisplayGrid", new { page = page }),
            new X.PagedList.Mvc.Core.Common.PagedListRenderOptions
            {
                ContainerDivClasses = new[] { "container" },
